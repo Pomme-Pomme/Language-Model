@@ -1,0 +1,10 @@
+de	de_bi	lm/uni-16000-train-de.lm
+es	es_bi	lm/uni-16000-train-es.lm
+et	et_bi	lm/uni-16000-train-et.lm
+hu	hu_bi	lm/uni-16000-train-hu.lm
+it	it_bi	lm/uni-16000-train-it.lm
+lv	lv_bi	lm/uni-16000-train-lv.lm
+nl	nl_bi	lm/uni-16000-train-nl.lm
+pl	pl_bi	lm/uni-16000-train-pl.lm
+pt	pt_bi	lm/uni-16000-train-pt.lm
+sv	sv_bi	lm/uni-16000-train-sv.lm
