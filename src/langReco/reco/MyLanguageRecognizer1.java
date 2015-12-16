@@ -76,17 +76,6 @@ public class MyLanguageRecognizer1 extends LanguageRecognizer{
 					
 			return language;
 	}
-	
-	/*
-	public static void main(String[] args){
-		
-		MyLanguageRecognizer1 test = new MyLanguageRecognizer1("lm/fichConfig_bigram-100.txt");
-		
-		//System.out.println(test.lmMap.get(test.lang).values());
-		
-		System.out.println(test.recognizeSentenceLanguage("Me abla"));
-		
-	}
-	*/
+
 
 }
