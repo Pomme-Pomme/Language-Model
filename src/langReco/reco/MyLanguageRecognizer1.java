@@ -70,7 +70,7 @@ public class MyLanguageRecognizer1 extends LanguageRecognizer{
 				}
 			}	
 		}
-
+			//System.out.println(language + proba);
 			//System.out.println(list.size());
 			//System.out.println(lang.size());
 					
