@@ -1,12 +1,10 @@
 package langReco.reco;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import langModel.MyLaplaceLanguageModel;
-import langModel.MyNaiveLanguageModel;
 import langModel.MyNgramCounts;
 import langModel.NgramCounts;
 
@@ -48,7 +46,6 @@ public class MyLanguageRecognizer1 extends LanguageRecognizer{
 				lmMap.put(l, mapPassage);
 			}
 		}
-		
 	}
 	
 	
@@ -70,10 +67,9 @@ public class MyLanguageRecognizer1 extends LanguageRecognizer{
 				}
 			}	
 		}
-			//System.out.println(language + proba);
+			System.out.println(language + proba);
 			//System.out.println(list.size());
 			//System.out.println(lang.size());
-					
 			return language;
 	}
 

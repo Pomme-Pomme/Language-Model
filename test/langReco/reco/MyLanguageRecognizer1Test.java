@@ -20,7 +20,7 @@ public class MyLanguageRecognizer1Test {
 		String goldLangPath = "data/gold/gold-lang.txt";
 
 
-		MyLanguageRecognizer1 baseline = new MyLanguageRecognizer1("lm/fichConfig_bigram-100.txt");
+		MyLanguageRecognizer2 baseline = new MyLanguageRecognizer2("lm/fichConfig_bigram-100.txt");
 
 
 		String hypLangFilePath = "/tmp/hyp";

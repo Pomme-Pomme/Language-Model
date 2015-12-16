@@ -19998,3 +19998,7 @@ et
 pl
 es
 nl
+fr
+en
+fr
+en
