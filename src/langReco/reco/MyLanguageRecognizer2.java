@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import langModel.MyLaplaceLanguageModel;
+import langModel.MyNaiveLanguageModel;
 import langModel.MyNgramCounts;
 import langModel.NgramCounts;
 
 public class MyLanguageRecognizer2 extends LanguageRecognizer{
 
 	
-	protected Map<String,Map<String,MyLaplaceLanguageModel>> lmMap;
+	protected Map<String,Map<String,MyNaiveLanguageModel>> lmMap;
 	
 	
 	/**
@@ -27,7 +27,7 @@ public class MyLanguageRecognizer2 extends LanguageRecognizer{
 		lang = new ArrayList<String>(getLanguages());
 		
 		//lmMap
-		lmMap = new HashMap<String,Map<String,MyLaplaceLanguageModel>>();
+		lmMap = new HashMap<String,Map<String,MyNaiveLanguageModel>>();
 		
 		for(String l : this.getLanguages()){
 			for(String idlm: this.getNgramCountNames(l)){
@@ -37,11 +37,11 @@ public class MyLanguageRecognizer2 extends LanguageRecognizer{
 				ngram.readNgramCountsFile(this.getNgramCountPath(l, idlm));
 				
 				//Création language modele
-				MyLaplaceLanguageModel lm = new MyLaplaceLanguageModel();
+				MyNaiveLanguageModel lm = new MyNaiveLanguageModel();
 				lm.setNgramCounts(ngram);
 				
 				//Création des maps
-				HashMap<String,MyLaplaceLanguageModel> mapPassage = new HashMap<String,MyLaplaceLanguageModel>();
+				HashMap<String,MyNaiveLanguageModel> mapPassage = new HashMap<String,MyNaiveLanguageModel>();
 				mapPassage.put(idlm, lm);
 				lmMap.put(l, mapPassage);
 			}
@@ -60,7 +60,7 @@ public class MyLanguageRecognizer2 extends LanguageRecognizer{
 		String language="";
 		
 		for(String l : lang){
-			for(MyLaplaceLanguageModel mllm : lmMap.get(l).values()){
+			for(MyNaiveLanguageModel mllm : lmMap.get(l).values()){
 				if(mllm.getSentenceProb(sentence)>proba){
 					proba = mllm.getSentenceProb(sentence);
 					language = l;
