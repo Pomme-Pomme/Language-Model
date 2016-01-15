@@ -1,6 +1,9 @@
 package langReco.reco;
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -24,6 +27,7 @@ public abstract class LanguageRecognizer {
 	 * List of languages present in the train corpus + unk for a potential unknown language 
 	 */
 	protected List<String> lang;
+	public Map<String, Double> lowestProba;
 
 	/**
 	 * Map of ngram counter file paths associated with each language as each language can be 
