@@ -19,16 +19,17 @@ public class MyLanguageRecognizer2 extends LanguageRecognizer{
 	 * @param configFile  
 	 */
 	public MyLanguageRecognizer2(String configFile){
-		//langNgramCountMap
+		//langNgramCountMap qui permettera de passer à lmMap
 		langNgramCountMap = new HashMap<String,Map<String,String>>();
 		loadNgramCountPath4Lang(configFile);
 		
-		//lang
+		//lang, où on stock les differentes langues possibles
 		lang = new ArrayList<String>(getLanguages());
 		
-		//lmMap
+		//lmMap, la variable de classe
 		lmMap = new HashMap<String,Map<String,MyNaiveLanguageModel>>();
 		
+		//Pour chaque modele de langage de chaque langue
 		for(String l : this.getLanguages()){
 			for(String idlm: this.getNgramCountNames(l)){
 				
@@ -40,7 +41,7 @@ public class MyLanguageRecognizer2 extends LanguageRecognizer{
 				MyNaiveLanguageModel lm = new MyNaiveLanguageModel();
 				lm.setNgramCounts(ngram);
 				
-				//Création des maps
+				//Création de la map lmMap, qui lie les langage de model avec le nom des langues
 				HashMap<String,MyNaiveLanguageModel> mapPassage = new HashMap<String,MyNaiveLanguageModel>();
 				mapPassage.put(idlm, lm);
 				lmMap.put(l, mapPassage);
@@ -54,23 +55,35 @@ public class MyLanguageRecognizer2 extends LanguageRecognizer{
 	 */
 	public String recognizeSentenceLanguage(String sentence) {
 		
+		//La variable pour calculer les probas
 		lang = new ArrayList<String>(getLanguages());
 		
 		Double proba=0.0;
 		String language="";
 		
+		//Pour chaque modele de langage (de chaque langue)
 		for(String l : lang){
 			for(MyNaiveLanguageModel mllm : lmMap.get(l).values()){
+				//Si la probabilite trouvée pour cette langue est la plus grande
 				if(mllm.getSentenceProb(sentence)>proba){
+					//Alors on sauvegarde cette proba et la langue reconnue
 					proba = mllm.getSentenceProb(sentence);
 					language = l;
 				}
 			}	
 		}
-			System.out.println(language + proba);
+			//tests
+			//System.out.println(language + proba);
 			//System.out.println(list.size());
 			//System.out.println(lang.size());
 			return language;
+	}
+
+
+	@Override
+	public String recognizeSentenceLanguage(String sentence, int order) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

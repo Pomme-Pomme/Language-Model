@@ -211,4 +211,32 @@ public abstract class LanguageRecognizer {
 		
 		MiscUtil.writeFile(languagePrediction.toString(), hypLangFilePath, false);
 	}	
+	
+	
+	//// Ajouté pour plusieurs ordres
+	
+	public abstract String recognizeSentenceLanguage(String sentence, int order);
+	
+	public void recognizeFileLanguage(String testSentenceFilePath, String hypLangFilePath, int order) {
+		//reads the sentences to recognize
+		List<String> sentences = MiscUtil.readTextFileAsStringList(testSentenceFilePath);
+
+		//predicts the language of each sentence
+		String langPredict;
+		StringBuffer languagePrediction = new StringBuffer();
+
+		int i = 1;
+		for (String sentence: sentences) {
+			langPredict = recognizeSentenceLanguage(sentence, order);
+			languagePrediction.append(langPredict);
+			languagePrediction.append("\n");
+			if(i % 1000 == 0)
+				System.out.println("Phrases traitées jusqu'à " + i);
+			i ++;
+		}
+		
+		MiscUtil.writeFile(languagePrediction.toString(), hypLangFilePath, false);
+	}
+	
+	
 }

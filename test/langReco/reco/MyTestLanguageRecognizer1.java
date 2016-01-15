@@ -16,13 +16,14 @@ public class MyTestLanguageRecognizer1 {
 
 	@Test
 	public void testBaselineLanguageRecognizer() {
+		//On prend les fichier de tests
 		String goldSentPath = "data/gold/gold-sent.txt";
 		String goldLangPath = "data/gold/gold-lang.txt";
 
-
+		//On créé la classe de calcul 
 		MyLanguageRecognizer1 baseline = new MyLanguageRecognizer1("lm/fichConfig_bigram-100.txt");
 
-
+		//On fait les calcul et on regarde les performances
 		String hypLangFilePath = "/tmp/hyp";
 		baseline.recognizeFileLanguage(goldSentPath, hypLangFilePath);
 		System.out.printf("System performance = %f\n", Performance.evaluate(goldLangPath, hypLangFilePath));

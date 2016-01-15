@@ -32,4 +32,10 @@ public class BaseLineLanguageRecognizer extends LanguageRecognizer {
 		return lang.get(rand.nextInt(lang.size()));
 	}
 
+	@Override
+	public String recognizeSentenceLanguage(String sentence, int order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
