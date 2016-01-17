@@ -12,6 +12,8 @@ import langModel.MyNgramCounts;
 import langModel.NgramCounts;
 
 public class MyLanguageRecognizer4 extends LanguageRecognizer{
+	
+	private static final double SEUIL_UNK = Math.pow(10, -120);
 
 	
 	protected Map<String,Map<String,MyLaplaceLanguageModel>> lmMap;
@@ -60,8 +62,9 @@ public class MyLanguageRecognizer4 extends LanguageRecognizer{
 		
 		lang = new ArrayList<String>(getLanguages());
 		
+		
 		//La variable pour calculer les probas
-		Double proba=0.0;
+		Double proba=SEUIL_UNK;
 		String language="unk";
 		
 		//Pour chaque modele de langage (de chaque langue)
@@ -75,6 +78,7 @@ public class MyLanguageRecognizer4 extends LanguageRecognizer{
 				}
 			}
 		}
+		
 			//tests
 			//System.out.println(language + proba);
 			//System.out.println(list.size());

@@ -231,6 +231,7 @@ public abstract class LanguageRecognizer {
 
 		int i = 1;
 		for (String sentence: sentences) {
+			//on appelle la méthode qui prend un odre en paramètre
 			langPredict = recognizeSentenceLanguage(sentence, order);
 			languagePrediction.append(langPredict);
 			languagePrediction.append("\n");
