@@ -13,6 +13,7 @@ import langModel.NgramCounts;
 
 public class MyLanguageRecognizer4 extends LanguageRecognizer{
 	
+	//Le seuil de probabilité pour ne pas être inconnu
 	private static final double SEUIL_UNK = Math.pow(10, -120);
 
 	
